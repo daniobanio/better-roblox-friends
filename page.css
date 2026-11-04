@@ -1,0 +1,15 @@
+/* Light-DOM tweaks injected into roblox.com (everything else lives in shadow roots). */
+[data-brf-hide] { display: none !important; }
+
+#brf-home-host { display: block; margin: 0 0 24px; }
+
+.brf-nav-btn { position: relative; background: transparent; border: 0; cursor: pointer; display: inline-flex; align-items: center; justify-content: center; color: inherit; }
+.brf-nav-btn svg { pointer-events: none; }
+.brf-nav-btn.brf-active { opacity: .7; }
+.brf-nav-badges { position: absolute; top: 2px; right: 0; pointer-events: none; }
+.brf-nav-badge {
+  display: block; min-width: 16px; height: 16px; padding: 0 4px; border-radius: 8px;
+  font: 700 10px/16px "Builder Sans", "Gotham SSm", system-ui, sans-serif; text-align: center; color: #fff;
+}
+.brf-nav-badge.brf-online { background: #02b757; }
+.brf-nav-badge.brf-req { background: #e5484d; }

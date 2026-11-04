@@ -1,0 +1,41 @@
+{
+  "manifest_version": 3,
+  "name": "Better Roblox Friends",
+  "version": "1.1.0",
+  "description": "A better friends experience for Roblox: live status, last online, the game they're in with one-click join, and a slide-in friends panel instead of a separate tab.",
+  "icons": {
+    "16": "icons/icon16.png",
+    "32": "icons/icon32.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "permissions": [
+    "storage",
+    "alarms",
+    "notifications",
+    "declarativeNetRequest"
+  ],
+  "content_scripts": [
+    {
+      "matches": [
+        "https://www.roblox.com/*"
+      ],
+      "js": [
+        "styles.js",
+        "engine.js",
+        "content.js"
+      ],
+      "css": [
+        "page.css"
+      ],
+      "run_at": "document_idle"
+    }
+  ],
+  "host_permissions": [
+    "https://*.roblox.com/*",
+    "https://*.rbxcdn.com/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  }
+}
