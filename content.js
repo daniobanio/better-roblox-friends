@@ -587,9 +587,12 @@
 
   function ensureNavButton() {
     // hide the original left-nav entry
-    const old = document.querySelector('#nav-friends');
-    const oldLi = old && (old.closest('li') || old);
-    if (oldLi && !oldLi.hasAttribute('data-brf-hide')) oldLi.setAttribute('data-brf-hide', '');
+    // (Roblox's current left nav has no #nav-friends id, so match the link itself)
+    document.querySelectorAll('a#nav-friends, a[href*="/users/friends"], a[href*="/friends"]').forEach((a) => {
+      if (a.closest('#brf-overlay-host, .brf-nav-item') || a.closest('[data-brf-hide]')) return;
+      if (a.id !== 'nav-friends' && !(isFriendsHref(a.getAttribute('href')) && /^friends/i.test(a.textContent.trim()))) return;
+      (a.closest('li') || a).setAttribute('data-brf-hide', '');
+    });
 
     if (navItem && navItem.isConnected) return;
     const n = document.querySelector('#navbar-notifications, #navbar-stream, [aria-label="Notifications"], [data-testid*="otification"]');
