@@ -1,3 +1,5 @@
+<img src="icons/icon128.png" alt="Better Roblox Friends icon" width="96">
+
 # Better Roblox Friends
 
 Better Roblox Friends is a Chrome extension that improves how you view friends on roblox.com. Your home page gets a row of friend tiles showing who's on and what they're playing, and a Friends button in the top bar opens the full list in a panel from any page. You don't need the friends page to see who's around.
