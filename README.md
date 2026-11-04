@@ -17,10 +17,7 @@ The friends row on the home page becomes tiles:
 
 The Friends button in the top bar opens the panel. Esc closes it.
 
-<p>
-  <img src="docs/images/friends-panel.png" alt="The slide-in friends panel, grouped into favorites, in experience, in Studio and online" height="520">
-  <img src="docs/images/friends-panel-offline.png" alt="The offline section, showing last online time and last game played" height="520">
-</p>
+<img src="docs/images/friends-panel.png" alt="The slide-in friends panel, grouped into favorites, in experience, in Studio and online" height="520">
 
 Presence is checked about once a minute in the background, even with no Roblox tab open. The bell in the panel mutes notifications.
 
