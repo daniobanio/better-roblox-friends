@@ -51,6 +51,8 @@ svg { display: block; flex: none; }
 .s-game .avatar::after, .avatar.s-game::after {
   content: ""; position: absolute; inset: -3px; border-radius: 50%; border: 2px solid var(--game); pointer-events: none;
 }
+/* in-game friends get the green ring only, no status dot */
+.avatar.s-game .dot { display: none; }
 
 .verified { display: inline-block; vertical-align: -2px; margin-left: 4px; color: var(--online); }
 
