@@ -88,9 +88,22 @@
   async function fetchRequests() {
     try {
       const r = await api('https://friends.roblox.com/v1/my/friends/requests?limit=100&sortOrder=Desc');
-      const list = (r.data || []).map((x) => ({ id: x.id, name: x.name, displayName: x.displayName || x.name, verified: !!x.hasVerifiedBadge }));
-      await ensureAvatars(list.map((x) => x.id));
-      return list.map((x) => ({ ...x, avatar: mem.cache.avatars[x.id] || '' }));
+      const raw = (r.data || []).map((x) => ({ ...x, id: x.id || x.userId || (x.friendRequest && x.friendRequest.senderId) })).filter((x) => x.id);
+      // Roblox's requests endpoint no longer returns names, so look them up by ID like the friends list does.
+      await ensureNames(raw);
+      const ids = raw.map((x) => x.id);
+      await ensureAvatars(ids);
+      return raw.map((x) => {
+        const n = mem.cache.names[x.id] || {};
+        const name = n.name || x.name || '';
+        return {
+          id: x.id,
+          name,
+          displayName: n.displayName || x.displayName || name,
+          verified: n.verified !== undefined ? !!n.verified : !!x.hasVerifiedBadge,
+          avatar: mem.cache.avatars[x.id] || '',
+        };
+      });
     } catch {
       return mem.snapshot ? mem.snapshot.requests || [] : [];
     }

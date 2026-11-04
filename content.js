@@ -222,11 +222,12 @@
 
   function requestRowHtml(r) {
     const busy = S.busy.has(r.id);
+    const shown = r.displayName || r.name || 'Roblox user';
     return `<div class="row">
       ${avatarHtml({ ...r, state: null })}
       <div class="mid">
-        <div class="name"><a href="${profileUrl(r.id)}">${esc(r.displayName)}</a>${r.verified ? I.verified : ''}</div>
-        <div class="status"><span class="txt">@${esc(r.name)} · wants to be friends</span></div>
+        <div class="name"><a href="${profileUrl(r.id)}">${esc(shown)}</a>${r.verified ? I.verified : ''}</div>
+        <div class="status"><span class="txt">${r.name ? `@${esc(r.name)} · ` : ''}wants to be friends</span></div>
       </div>
       <div class="acts">
         <button class="btn-ghost pri" data-act="accept" data-id="${r.id}" ${busy ? 'disabled' : ''}>Accept</button>
