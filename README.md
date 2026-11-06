@@ -21,6 +21,10 @@ The Friends button in the top bar opens the panel. Esc closes it.
 
 <img src="docs/images/friends-panel.png" alt="The slide-in friends panel, grouped into favorites, in experience, in Studio and online" height="520">
 
+Offline friends show when they were last online and the last game they played:
+
+<img src="docs/images/friends-panel-last-seen.png" alt="The offline section of the friends panel, showing last online time and last game played">
+
 Presence is checked about once a minute in the background, even with no Roblox tab open. The bell in the panel mutes notifications.
 
 ## Install
